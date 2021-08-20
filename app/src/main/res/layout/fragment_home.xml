@@ -34,10 +34,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ListAdapter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btn_simple_recycler"
+        app:layout_constraintBottom_toTopOf="@+id/btn_multiple_adapter"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/btn_simple_recycler"
+        app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/btn_simple_recycler" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_multiple_adapter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Multiple Adapter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/btn_list_adapter" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
