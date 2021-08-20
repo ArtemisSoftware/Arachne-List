@@ -16,18 +16,29 @@ class SimpleFragment : Fragment(R.layout.fragment_simple) {
     private var _binding: FragmentSimpleBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var simpleAdapter: SimpleAdapter
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         _binding = FragmentSimpleBinding.bind(view)
 
         setupRecyclerView()
+
+        binding.menuItemAdd.setOnClickListener {
+            simpleAdapter.insertItem()
+        }
+
+        binding.menuItemRemove.setOnClickListener {
+            simpleAdapter.removeItem()
+        }
+
     }
 
 
     private fun setupRecyclerView() {
 
         val exampleList = (activity as MainActivity).generateDummyList(4)
-        val simpleAdapter = SimpleAdapter(exampleList)
+        simpleAdapter = SimpleAdapter(exampleList)
 
         binding.rclySimple.apply {
             adapter = simpleAdapter

@@ -24,7 +24,6 @@
         app:menu_colorNormal="#DA4336"
         app:menu_colorPressed="#E75043"
         app:menu_colorRipple="#99FFFFFF"
-        app:menu_fab_label="your_label_here"
         app:menu_fab_size="normal"
         app:menu_icon="@drawable/fab_add"
         app:menu_labels_colorNormal="#333333"
@@ -60,12 +59,20 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/menu_item"
-            app:fab_label="Menu item 1"
+            android:id="@+id/menu_item_add"
+            app:fab_label="@string/add_item"
             app:fab_size="mini"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/fab_add" />
+            android:src="@drawable/ic_add_new" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/menu_item_remove"
+            app:fab_label="@string/remove_item"
+            app:fab_size="mini"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_delete" />
 
     </com.github.clans.fab.FloatingActionMenu>
 

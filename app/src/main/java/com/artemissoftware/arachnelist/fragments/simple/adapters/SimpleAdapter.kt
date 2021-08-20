@@ -40,14 +40,24 @@ class SimpleAdapter (private val itemList: MutableList<Item>/*, private val list
 
     fun insertItem(){
 
-        val index = Random.nextInt(8)
-        val newItem = Item(R.drawable.ic_android, "New item at position $index", (R.drawable.ic_android).toString())
+        var index = 0
+
+        if(itemList.size != 0){
+            index = Random.nextInt(itemList.size)
+        }
+
+        val newItem = Item(R.drawable.ic_new, "New item at position $index", (R.drawable.ic_android).toString())
         itemList.add(index, newItem)
         notifyItemInserted(index)
     }
 
     fun removeItem(){
-        val index = Random.nextInt(8)
+
+        if(itemList.size == 0){
+            return
+        }
+
+        val index = Random.nextInt(itemList.size)
         itemList.removeAt(index)
         notifyItemRemoved(index)
     }

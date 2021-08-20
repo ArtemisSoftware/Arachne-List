@@ -9,9 +9,10 @@ import com.artemissoftware.arachnelist.models.ResourceView
 sealed class DataViewHolder(binding: ViewBinding) : RecyclerView.ViewHolder(binding.root) {
 
     class ItemViewHolder(private val binding: ItemBindableBinding) : DataViewHolder(binding){
-        fun bind(item: ResourceView){
+        fun bind(resourceView: ResourceView){
 
-            binding.item = (item as ResourceView.ItemValue).item
+            binding.item = (resourceView as ResourceView.ItemValue).item
+            binding.imageView.setImageResource(resourceView.item.imageResource)
         }
     }
 

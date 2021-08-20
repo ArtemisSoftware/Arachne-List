@@ -10,6 +10,7 @@ import com.artemissoftware.arachnelist.MainActivity
 import com.artemissoftware.arachnelist.R
 import com.artemissoftware.arachnelist.databinding.FragmentListAdapterBinding
 import com.artemissoftware.arachnelist.databinding.FragmentMultipleBinding
+import com.artemissoftware.arachnelist.fragments.binding.adapter.ItemBindableListAdapter
 import com.artemissoftware.arachnelist.fragments.listadapter.adapters.ItemListAdapter
 
 
@@ -18,7 +19,7 @@ class MultipleFragment : Fragment(R.layout.fragment_multiple) {
     private var _binding: FragmentMultipleBinding? = null
     private val binding get() = _binding!!
 
-    private val itemListAdapter by lazy { ItemListAdapter() }
+    private val itemListAdapter by lazy { ItemBindableListAdapter() }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
@@ -26,7 +27,7 @@ class MultipleFragment : Fragment(R.layout.fragment_multiple) {
 
         setupRecyclerView()
 
-        itemListAdapter.submitList((activity as MainActivity).generateDummyList(2))
+        itemListAdapter.submitList((activity as MainActivity).generateDummyResourceList(2))
 
     }
 

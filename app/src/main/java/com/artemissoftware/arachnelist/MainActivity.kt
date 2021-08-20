@@ -3,11 +3,18 @@ package com.artemissoftware.arachnelist
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.artemissoftware.arachnelist.models.Item
+import com.artemissoftware.arachnelist.models.ResourceView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
+
+    fun generateDummyResourceList(size: Int): List<ResourceView.ItemValue> {
+
+        val dummy: List<ResourceView.ItemValue> = generateDummyList(size).map { item -> ResourceView.ItemValue(item) }
+        return dummy
     }
 
 
