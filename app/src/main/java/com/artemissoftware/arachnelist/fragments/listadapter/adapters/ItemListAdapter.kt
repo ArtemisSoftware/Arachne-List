@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.artemissoftware.arachnelist.R
 import com.artemissoftware.arachnelist.models.Item
 import kotlinx.android.synthetic.main.item_simple.view.*
+import kotlin.random.Random
 
 class ItemListAdapter() : ListAdapter<Item, ItemListAdapter.ItemHolder>(ItemDiffCallback()) {
 

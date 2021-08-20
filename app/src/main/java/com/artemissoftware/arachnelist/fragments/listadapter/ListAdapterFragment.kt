@@ -3,11 +3,17 @@ package com.artemissoftware.arachnelist.fragments.listadapter
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.artemissoftware.arachnelist.MainActivity
 import com.artemissoftware.arachnelist.R
 import com.artemissoftware.arachnelist.databinding.FragmentListAdapterBinding
+import com.artemissoftware.arachnelist.fragments.ItemViewModel
 import com.artemissoftware.arachnelist.fragments.listadapter.adapters.ItemListAdapter
+import kotlinx.coroutines.InternalCoroutinesApi
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.collect
 
 
 class ListAdapterFragment : Fragment(R.layout.fragment_list_adapter) {
@@ -17,14 +23,29 @@ class ListAdapterFragment : Fragment(R.layout.fragment_list_adapter) {
 
     private val itemListAdapter by lazy { ItemListAdapter() }
 
+
+    val itemViewModel: ItemViewModel by viewModels()
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         _binding = FragmentListAdapterBinding.bind(view)
 
         setupRecyclerView()
 
-        itemListAdapter.submitList((activity as MainActivity).generateDummyList(7))
+        binding.menuItemAdd.setOnClickListener {
+            //simpleAdapter.insertItem()
+        }
 
+        binding.menuItemRemove.setOnClickListener {
+            val list = itemListAdapter.currentList
+
+            list.removeAt(0)
+            itemListAdapter.submitList(list)
+        }
+
+        initCountObserver()
+        itemViewModel.addList((activity as MainActivity).generateDummyList(7))
     }
 
     private fun setupRecyclerView() {
@@ -32,6 +53,17 @@ class ListAdapterFragment : Fragment(R.layout.fragment_list_adapter) {
         binding.rclyListAdapter.apply {
             adapter = itemListAdapter
             layoutManager = LinearLayoutManager(requireContext())
+        }
+    }
+
+
+    private fun initCountObserver() {
+        lifecycleScope.launch {
+            itemViewModel.listItem.collect { value ->
+
+                itemListAdapter.submitList(value)
+
+            }
         }
     }
 }
