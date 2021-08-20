@@ -34,14 +34,11 @@ class ListAdapterFragment : Fragment(R.layout.fragment_list_adapter) {
         setupRecyclerView()
 
         binding.menuItemAdd.setOnClickListener {
-            //simpleAdapter.insertItem()
+            itemViewModel.addItem()
         }
 
         binding.menuItemRemove.setOnClickListener {
-            val list = itemListAdapter.currentList
-
-            list.removeAt(0)
-            itemListAdapter.submitList(list)
+            itemViewModel.removeItem()
         }
 
         initCountObserver()

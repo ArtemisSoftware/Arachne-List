@@ -46,7 +46,7 @@ class SimpleAdapter (private val itemList: MutableList<Item>/*, private val list
             index = Random.nextInt(itemList.size)
         }
 
-        val newItem = Item(R.drawable.ic_new, "New item at position $index", (R.drawable.ic_android).toString())
+        val newItem = Item(R.drawable.ic_new, "New item at position $index", (R.drawable.ic_new).toString())
         itemList.add(index, newItem)
         notifyItemInserted(index)
     }
