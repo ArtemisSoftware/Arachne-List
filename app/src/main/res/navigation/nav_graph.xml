@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.artemissoftware.arachnelist.fragments.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_simpleFragment"
+            app:destination="@id/simpleFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_listAdapterFragment"
+            app:destination="@id/listAdapterFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_multipleFragment"
+            app:destination="@id/multipleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listAdapterFragment"
+        android:name="com.artemissoftware.arachnelist.fragments.listadapter.ListAdapterFragment"
+        android:label="fragment_list_adapter"
+        tools:layout="@layout/fragment_list_adapter" />
+    <fragment
+        android:id="@+id/multipleFragment"
+        android:name="com.artemissoftware.arachnelist.fragments.binding.MultipleFragment"
+        android:label="fragment_multiple"
+        tools:layout="@layout/fragment_multiple" />
+    <fragment
+        android:id="@+id/simpleFragment"
+        android:name="com.artemissoftware.arachnelist.fragments.simple.SimpleFragment"
+        android:label="fragment_simple"
+        tools:layout="@layout/fragment_simple" />
+</navigation>
