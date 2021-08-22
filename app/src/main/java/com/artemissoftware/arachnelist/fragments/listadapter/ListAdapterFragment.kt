@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.artemissoftware.arachnelist.MainActivity
 import com.artemissoftware.arachnelist.R
 import com.artemissoftware.arachnelist.databinding.FragmentListAdapterBinding
@@ -14,6 +15,10 @@ import com.artemissoftware.arachnelist.fragments.listadapter.adapters.ItemListAd
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.collect
+import android.os.Parcelable
+
+
+
 
 
 class ListAdapterFragment : Fragment(R.layout.fragment_list_adapter) {
@@ -41,15 +46,17 @@ class ListAdapterFragment : Fragment(R.layout.fragment_list_adapter) {
             itemViewModel.removeItem()
         }
 
+
+        itemViewModel.addList((activity as MainActivity).generateDummyList(27))
         initCountObserver()
-        itemViewModel.addList((activity as MainActivity).generateDummyList(7))
     }
 
     private fun setupRecyclerView() {
 
         binding.rclyListAdapter.apply {
-            adapter = itemListAdapter
             layoutManager = LinearLayoutManager(requireContext())
+            adapter = itemListAdapter
+
         }
     }
 
@@ -59,8 +66,16 @@ class ListAdapterFragment : Fragment(R.layout.fragment_list_adapter) {
             itemViewModel.listItem.collect { value ->
 
                 itemListAdapter.submitList(value)
-
+                binding.rclyListAdapter.getLayoutManager()?.onRestoreInstanceState((activity as MainActivity).recylerViewState);
             }
         }
+    }
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        val recylerViewState: Parcelable? = binding.rclyListAdapter.getLayoutManager()?.onSaveInstanceState()
+        (activity as MainActivity).recylerViewState = recylerViewState
     }
 }

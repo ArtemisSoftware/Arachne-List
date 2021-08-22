@@ -1,7 +1,6 @@
-package com.artemissoftware.arachnelist.fragments.binding.adapter
+package com.artemissoftware.arachnelist.fragments.multiplebinding.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.artemissoftware.arachnelist.R

@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.artemissoftware.arachnelist.MainActivity
 import com.artemissoftware.arachnelist.R
 import com.artemissoftware.arachnelist.databinding.FragmentSimpleBinding

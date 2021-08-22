@@ -4,7 +4,7 @@ buildscript {
 
     ext {
         kotlinVersion = '1.5.20'
-        recyclerVersion = "1.1.0-rc01"
+        recyclerVersion = "1.2.0-alpha02"
         navigationVersion = "2.1.0"
     }
 

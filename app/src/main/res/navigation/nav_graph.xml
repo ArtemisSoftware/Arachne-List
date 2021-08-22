@@ -27,7 +27,7 @@
         tools:layout="@layout/fragment_list_adapter" />
     <fragment
         android:id="@+id/multipleFragment"
-        android:name="com.artemissoftware.arachnelist.fragments.binding.MultipleFragment"
+        android:name="com.artemissoftware.arachnelist.fragments.multiplebinding.MultipleFragment"
         android:label="fragment_multiple"
         tools:layout="@layout/fragment_multiple" />
     <fragment

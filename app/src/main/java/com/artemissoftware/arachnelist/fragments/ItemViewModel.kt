@@ -3,6 +3,7 @@ package com.artemissoftware.arachnelist.fragments
 import androidx.lifecycle.ViewModel
 import com.artemissoftware.arachnelist.R
 import com.artemissoftware.arachnelist.models.Item
+import com.artemissoftware.arachnelist.models.ResourceView
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlin.random.Random
@@ -50,5 +51,18 @@ class ItemViewModel : ViewModel(){
         _listItem.value = itemList
 
     }
+
+
+
+
+
+    private val _multipleListItem= MutableStateFlow(listOf<ResourceView.ItemValue>())
+    val multipleListItem: StateFlow<List<ResourceView.ItemValue>> = _multipleListItem
+
+
+    fun addMultipleList(dummyList: List<ResourceView.ItemValue>) {
+        _multipleListItem.value = dummyList
+    }
+
 
 }

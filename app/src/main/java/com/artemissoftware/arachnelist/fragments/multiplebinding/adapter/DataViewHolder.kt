@@ -1,9 +1,8 @@
-package com.artemissoftware.arachnelist.fragments.binding.adapter
+package com.artemissoftware.arachnelist.fragments.multiplebinding.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.artemissoftware.arachnelist.databinding.ItemBindableBinding
-import com.artemissoftware.arachnelist.models.Item
 import com.artemissoftware.arachnelist.models.ResourceView
 
 sealed class DataViewHolder(binding: ViewBinding) : RecyclerView.ViewHolder(binding.root) {

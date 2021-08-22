@@ -1,4 +1,4 @@
-package com.artemissoftware.arachnelist.fragments.binding.adapter
+package com.artemissoftware.arachnelist.fragments.multiplebinding.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.artemissoftware.arachnelist.models.ResourceView
